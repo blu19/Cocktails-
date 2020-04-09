@@ -2,34 +2,68 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Cocktails</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="server.js"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
+    <h1>Drink Search</h1>
+    <form id="test-response">
+      <label for="drink-input">Search for a Drink</label>
+      <input type="text" id="drink-input"><br>
+      <input id="find-drink" type="submit" value="Drink Search">
+    </form>
+    <div id="movie-view"></div>
+
+    <br>
+    <input id="find-ingredients" type="submit" value="View Ingredients">
+    <div id="ingredients-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#find-drink").on("click", function(event) {
+        event.preventDefault();
+
+        var data = $("#drink-input").val();
+        var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + data;
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+        $("#movie-view").text(JSON.stringify(response));
+        console.log(response);
+
+        for (let index = 0; index < response.drinks[index].idDrink.length; index++) {
+            var drinkId = response.drinks[index].idDrink;
+            console.log(drinkId);
+
+    $("#find-ingredients").on("click", function(event) {
+    event.preventDefault();
+
+    var data = $("#drink-input").val();
+    var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkId;
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response2) {
+    $("#ingredients-view").text(JSON.stringify(response2.drinks[0].strIngredient1 + " , " + response2.drinks[0].strIngredient2 + " , " + response2.drinks[0].strIngredient3));
+        
+
+    console.log(response2);
+    })
+}); 
+        }
+    });
+      });
+      
+    </script>
+
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
-
 </body>
 
 </html>
