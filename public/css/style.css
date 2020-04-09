@@ -1,0 +1,54 @@
+#videoBG {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#landingButton {
+    width: 10%;
+    font-size: 4%;
+    padding: 10px;
+    border: none;
+    background: rgb(7, 11, 15);
+    color: rgb(167, 159, 148);
+    cursor: pointer;
+}
+
+#landingButton:hover {
+    background: rgb(167, 159, 148);
+    color: black;
+}
+
+/* #landingContent {
+    position: fixed;
+    left: 75%;
+    bottom: 8%;
+    width: 100%;
+    padding: 20px;
+} */
+
+.title{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 400%;
+}
+
+#videoButton {
+    width: 10%;
+    font-size: 4%;
+    padding: 10px;
+    border: none;
+    background: rgb(7, 11, 15);
+    color: rgb(167, 159, 148);
+    cursor: pointer;
+}
+
+#videoButton:hover {
+    background: rgb(167, 159, 148);
+    color: black;
+}
