@@ -13,13 +13,15 @@ CREATE TABLE drinks
 
 CREATE TABLE users
 (
-	id int NOT NULL AUTO_INCREMENT,
-    user_name varchar(20) NOT NULL,
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_name varchar(20),
     email varchar(255) NOT NULL,
+    password VARCHAR(16) NOT NULL,
     user_dob varchar(10) NOT NULL,
     user_location varchar(30),
     user_drinks varchar(255),
     user_liked_drinks varchar(255),
     user_disliked_drinks varchar(255),
-    PRIMARY KEY (id)
+    createdAt TIMESTAMP,
+    updatedAt TIMESTAMP
 );
