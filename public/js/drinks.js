@@ -13,7 +13,7 @@ $(document).ready(function () {
       console.log(response.drinks)
 
       //hard coded to get 2 results for now, decide on how many to display
-      for (let index = 0; index < 2; index++) {
+      for (let index = 0; index < 1; index++) {
         displayDrinks(response.drinks, index)
       }
     })
@@ -48,33 +48,39 @@ function displayDrinks(arry, counter) {
   $("#results").append(newBtn)
 }
 
+
 //trying to get a function going to get the ingredients dynamically (function not working)
 function getIngredients(array) {
-  const { strDrink, strCategory, strAlcoholic, strInstructions, strIngredient1, strIngredient2, strIngredient3, strIngredient4} = array[0]
+  const { strDrink, strCategory, strAlcoholic, strInstructions } = array[0]
   const newArray = Object.entries(array[0])
   console.log(newArray)
-  let tempStr = ""
+  var tempStr = ""
 
+  tempStr = testI(tempStr, newArray)
+
+  $("#ingredientsRes").html(`<h3>Drink Name: ${strDrink} </h3>
+  <br>
+  <h6> Category: ${strCategory} <h6>
+
+  <h6> ${strAlcoholic} </h6> 
+
+  <h6> Instructions: ${strInstructions} </h6>
+
+
+  <h6> ${tempStr} </h6>
+  `)
+
+
+  // `)
+}
+
+function testI(emStr, array) {
   for (i = 21; i < 35; i++) {
-    if (newArray[i] === null) {
-      return tempStr
+    if (array[i][1] === null) {
+      return emStr
     } else {
-      tempStr = `
-      ${newArray[i][1]}, ${newArray[i + 15][1]}`
+      emStr += `
+      ${ array[i][1]}: ${array[i + 15][1] === null ? "your decision" : array[i + 15][1]} <br>`
     }
   }
-
-  console.log(tempStr)
-  $("#ingredientsRes").text(`
-  Drink Name: ${strDrink};
-  
-  Ingredients: ${strIngredient1}, ${strIngredient2}, ${strIngredient3}, ${strIngredient4};
-  
-  Category: ${strCategory};
-  
-  ${strAlcoholic};
-  Instructions: ${strInstructions};
-  
-  ${tempStr}
-  `)
 }
