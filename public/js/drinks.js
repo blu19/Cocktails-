@@ -50,26 +50,31 @@ function displayDrinks(arry, counter) {
 
 //trying to get a function going to get the ingredients dynamically (function not working)
 function getIngredients(array) {
-  const { strDrink, strCategory, strAlcoholic, strInstructions } = array[0]
+  const { strDrink, strCategory, strAlcoholic, strInstructions, strIngredient1, strIngredient2, strIngredient3, strIngredient4} = array[0]
   const newArray = Object.entries(array[0])
   console.log(newArray)
   let tempStr = ""
 
   for (i = 21; i < 35; i++) {
     if (newArray[i] === null) {
-      return tempstr
+      return tempStr
     } else {
       tempStr = `
       ${newArray[i][1]}, ${newArray[i + 15][1]}`
     }
   }
 
-  console.log(tempstr)
+  console.log(tempStr)
   $("#ingredientsRes").text(`
   Drink Name: ${strDrink};
+  
+  Ingredients: ${strIngredient1}, ${strIngredient2}, ${strIngredient3}, ${strIngredient4};
+  
   Category: ${strCategory};
+  
   ${strAlcoholic};
   Instructions: ${strInstructions};
+  
   ${tempStr}
   `)
 }
