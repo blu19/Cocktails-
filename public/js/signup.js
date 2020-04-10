@@ -25,15 +25,15 @@ $(document).ready(function() {
   // Otherwise we log any errors
   function signUpUser(email, password) {
     console.log("hello")
-    $.post("/api/signup", {
-      user_name: "",
+    $.post("/signup", {
+      user_name: "username",
       email: email,
       password: password,
-      user_dob: "",
-      user_location: "",
-      user_drinks: "",
-      user_liked_drinks: "",
-      user_disliked_drinks: ""      
+      user_dob: "1999-01-01",
+      user_location: "location",
+      user_drinks: "drinks",
+      user_liked_drinks: "likes",
+      user_disliked_drinks: "dislikes"      
     })
       .then(function(data) {
         window.location.replace("/members");

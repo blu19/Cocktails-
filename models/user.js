@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     user_dob: {
       type: DataTypes.DATE,
-      allowNull: false,
+      // allowNull: false,
       default: "1999-01-01",
     },
     user_location: {
