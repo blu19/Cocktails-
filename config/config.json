@@ -8,14 +8,14 @@
   },
   "test": {
     "username": "root",
-    "password": "es915696",
+    "password": "NewPassword",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "es915696",
+    "password": "NewPassword",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
