@@ -33,29 +33,21 @@ form.login {
     min-height: 100%;
 }
 
-#landingLoginButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
-    border: none;
-    background: rgb(7, 11, 15);
-    color: rgb(167, 159, 148);
-    cursor: pointer;
-}
 
-#landingSignupButton {
+#landingSignupButton, #landingLoginButton {
     width: 10%;
-    font-size: 4%;
-    padding: 10px;
+    font-size: 80%;
+  /*   padding: 10px; */
     border: none;
     background: rgb(7, 11, 15);
     color: rgb(167, 159, 148);
     cursor: pointer;
+    margin: 0;
 }
 
 #landingLoginButton:hover {
     background: rgb(167, 159, 148);
-    color: black;
+    color: black
 }
 
 #landingSignupButton:hover {
@@ -74,8 +66,11 @@ form.login {
 .title{
     width: 100%;
     padding: 0px;
-    font-size: 400%;
+/*     font-size: 400%;
+ */    margin: auto;
+    font-size: 100%;
 }
+
 
 #videoButton {
     width: 10%;
@@ -117,15 +112,15 @@ form.login {
     -o-animation:gm-slidein 3s 1;
     -webkit-animation:gm-slidein 3s 1;
     animation:gm-slidein 3s 1;
-    border-bottom:1px solid #FFF;
     margin:0 auto;
-    max-width:50%;
-    padding:4em 0 2em;
+    max-width:100%;
+    padding:8em 0 4em;
     text-align:center;
+
 }
 
 .heropanel__content h1 {
-    font-size: 400%;
+    font-size: 325%;
     margin:0 0 .5em;
     text-transform:uppercase;
 }
@@ -141,7 +136,7 @@ form.login {
 }
 
 #videoBG {
-        border-right: 2px solid blue;
+        border-right: 2px solid;
         object-fit: cover;  
         width: 100vw;    
         height: 100vh;   
@@ -149,5 +144,18 @@ form.login {
         top: 0;    
         left: 0;
 }
+
+
     
     
+
+#landingLoginButton,#landingSignupButton  {
+    border: 0px solid black;}
+    @media screen and (min-width: 1087px) {
+        #landingLoginButton,#landingSignupButton {
+        border-bottom: 0px solid black; } }
+    @media screen and (min-width: 200px) {
+        #landingLoginButton,#landingSignupButton {
+         margin: 0;
+         display: inline-block;
+        border-bottom: 0px solid black; } }
