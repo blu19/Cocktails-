@@ -66,8 +66,10 @@ function getIngredients(array) {
 
   <h6> Instructions: ${strInstructions} </h6>
 
-
   <h6> ${tempStr} </h6>
+
+  <button class="button" id="like_button">LIke Buttton</button>
+
   `)
 
 
@@ -83,4 +85,12 @@ function testI(emStr, array) {
       ${ array[i][1]}: ${array[i + 15][1] === null ? "your decision" : array[i + 15][1]} <br>`
     }
   }
+}
+
+
+
+//Click Save Function
+function clickSave(){
+  id = $(this).attr()
+  $("#ingredientsRes")
 }

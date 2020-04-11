@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "NewPassword",
+    "password": "es915696",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "NewPassword",
+    "password": "es915696",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "NewPassword",
+    "password": "es915696",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
