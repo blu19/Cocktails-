@@ -126,3 +126,15 @@ form.login {
     color: #3D3D3D;
     text-transform:uppercase;
 }
+
+#videoBG {
+        border-right: 2px solid blue;
+        object-fit: cover;  
+        width: 100vw;    
+        height: 100vh;   
+        position: fixed;
+        top: 0;    
+        left: 0;
+}
+    
+    
