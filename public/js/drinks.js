@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  let drinksArray = []
+  let indexCount = 0
 
   $("#find-drink").on("click", function (event) {
     event.preventDefault()
@@ -11,41 +13,52 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       console.log(response.drinks)
-
-      //hard coded to get 2 results for now, decide on how many to display
-      for (let index = 0; index < 1; index++) {
-        displayDrinks(response.drinks, index)
-      }
+      drinksArray = response.drinks
+      displayDrinks(drinksArray, indexCount)
     })
   })
 
-  //whenever button clicked...
-  $(document).on("click", ".drinkResults", function () {
-    const index = this.value
-    const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + index
+  // //whenever button clicked...
+  // $(document).on("click", ".drinkResults", function () {
+  //   const index = this.value
+  //   const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + index
 
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    }).then(function (res) {
-      getIngredients(res.drinks)
-    })
+  //   $.ajax({
+  //     url: queryURL,
+  //     method: "GET",
+  //   }).then(function (res) {
+  //     getIngredients(res.drinks)
+  //   })
+  // })
+
+  $(document).on("click", ".next", function () {
+    $(".drinkResults").remove()
+    indexCount++
+    displayDrinks(drinksArray, indexCount)
   })
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
 function displayDrinks(arry, counter) {
-  const newBtn = $("<button class='drinkResults' value='" + arry[counter].idDrink + "'>")
+  const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
+  const arrows = $("<button class='next' value='" + arry[counter].idDrink + "'>").text("next")
 
+  strTitle.append(arrows)
   divTemp.append(strTitle)
   fgTemp.append(imgTemp)
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
   $("#results").append(newBtn)
+
+  const ingUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + arry[counter].idDrink
+  $.get(ingUrl, function (data) {
+    console.log(data.drinks)
+    getIngredients(data.drinks)
+  })
 }
 
 
@@ -65,7 +78,6 @@ function getIngredients(array) {
   <h6> ${strAlcoholic} </h6> 
 
   <h6> Instructions: ${strInstructions} </h6>
-
 
   <h6> ${tempStr} </h6>
   `)
