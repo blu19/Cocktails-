@@ -30,10 +30,6 @@ $(document).ready(function() {
       email: email,
       password: password,
       user_dob: "1999-01-01",
-      user_location: "location",
-      user_drinks: "drinks",
-      user_liked_drinks: "likes",
-      user_disliked_drinks: "dislikes"
     })
       .then(function(data) {
         window.location.replace("/members");
@@ -47,3 +43,4 @@ $(document).ready(function() {
     $("#alert").fadeIn(500);
   }
 });
+
