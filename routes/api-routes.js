@@ -39,7 +39,7 @@ module.exports = function (app) {
   
   //ROAD BLOCK TO ASK FOR TA'S AND WILL 
 
-  app.get("/members",function(req, res){
+  app.post("/members",function(req, res){
     console.log(req.body.id)
     db.User.update(
       req.body,
@@ -70,4 +70,16 @@ module.exports = function (app) {
       });
     }
   });
+      app.post("/updatelikes",function(req, res){
+        console.log("----------------------------------------------------")
+        db.User.update(
+          { user_liked_drinks: JSON.stringify([req.body.id])},
+          {
+            where: {
+              id: req.user.id
+            }
+        }).then(data => res.json(data))
+        
+      });
 };
+
