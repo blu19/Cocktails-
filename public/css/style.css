@@ -33,7 +33,7 @@ form.login {
     min-height: 100%;
 }
 
-#landingButton {
+#landingLoginButton {
     width: 10%;
     font-size: 4%;
     padding: 10px;
@@ -43,7 +43,22 @@ form.login {
     cursor: pointer;
 }
 
-#landingButton:hover {
+#landingSignupButton {
+    width: 10%;
+    font-size: 4%;
+    padding: 10px;
+    border: none;
+    background: rgb(7, 11, 15);
+    color: rgb(167, 159, 148);
+    cursor: pointer;
+}
+
+#landingLoginButton:hover {
+    background: rgb(167, 159, 148);
+    color: black;
+}
+
+#landingSignupButton:hover {
     background: rgb(167, 159, 148);
     color: black;
 }
@@ -57,10 +72,8 @@ form.login {
 } */
 
 .title{
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 0px;
     font-size: 400%;
 }
 
