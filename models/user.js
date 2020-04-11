@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [6, 12]
+        len: {args: [6, 12], msg: "Must be 6-12 characters"}
       }
     },
     user_dob: {
