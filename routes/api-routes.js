@@ -36,6 +36,20 @@ module.exports = function (app) {
       });
   });
 
+  
+  //ROAD BLOCK TO ASK FOR TA'S AND WILL 
+
+  app.put("/members",function(req, res){
+    console.log(req.body.id)
+    db.User.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+    })
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
