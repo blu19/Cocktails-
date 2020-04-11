@@ -35,8 +35,9 @@ form.login {
 
 
 #landingSignupButton, #landingLoginButton {
-    width: 10%;
-    font-size: 80%;
+   max-width:500px;
+   min-width:40px;
+    font-size: 25px;
   /*   padding: 10px; */
     border: none;
     background: rgb(7, 11, 15);
@@ -147,14 +148,15 @@ form.login {
 
 
     
-    
 
+/* Needs work on this for the styling */
 #landingLoginButton,#landingSignupButton  {
     border: 0px solid black;}
     @media screen and (min-width: 1087px) {
         #landingLoginButton,#landingSignupButton {
-        border-bottom: 0px solid black; } }
-    @media screen and (min-width: 200px) {
+        border-bottom: 0px solid black;
+        font-size: 25px; } }
+    @media screen and (min-width: 400px) {
         #landingLoginButton,#landingSignupButton {
          margin: 0;
          display: inline-block;
