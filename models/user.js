@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: {args: [6, 12], msg: "Must be 6-12 characters"}
+      }
     },
     user_dob: {
       type: DataTypes.DATE,
