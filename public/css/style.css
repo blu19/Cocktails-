@@ -2,9 +2,26 @@ form.signup {
   margin-top: 50px;
 }
 
+#imageSignup {
+    background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
 }
+
+#imageMembers {
+    background-image: url(https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
 form.login {
-  margin-top: 50px;
+    margin-top: 50px;
+}
+
+#imageLogin {
+    background-image: url(https://images.pexels.com/photos/681846/pexels-photo-681846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
 }
 
 #videoBG {
