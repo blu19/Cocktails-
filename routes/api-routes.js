@@ -39,7 +39,7 @@ module.exports = function (app) {
   
   //ROAD BLOCK TO ASK FOR TA'S AND WILL 
 
-  app.put("/members",function(req, res){
+  app.get("/members",function(req, res){
     console.log(req.body.id)
     db.User.update(
       req.body,

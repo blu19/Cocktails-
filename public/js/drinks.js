@@ -39,6 +39,7 @@ $(document).ready(function () {
   $(document).on("click", ".like", function () {
     var currentLikeId = this.value
     likeDrinks(currentLikeId);
+    updateDrinksId(drinkStringId);
   })
   
 })
@@ -110,16 +111,34 @@ function testI(emStr, array) {
 
 
 //ROAD BLOCK TO ASK FOR TA'S AND WILL 
+var currentDrinkId;
+var drinkStringId;
 
 //Click Save Function 
-function likeDrinks(currentLikeId, req, res) {
-  console.log(res)
-  $.post("/members", {
-    id: 4, 
-   user_liked_drinks: currentLikeId,
+function likeDrinks(currentLikeId,drinkStringId) {
+  currentDrinkId = currentLikeId;
+  drinkStringId = currentDrinkId.toString();
+  console.log(currentLikeId)
+  console.log(typeof drinkStringId)
+  $.get("/members", {
+    id: 1, 
+   user_liked_drinks: drinkStringId,
   })
     .then(function(data) {
-      console.log('Added your drinks to your favorites')
+      res.json(data)
       // If there's an error, handle it by throwing up a bootstrap alert
     })
+}
+console.log(drinkStringId)
+
+function updateDrinksId(drinkStringId) {
+  // console.log(drinkStringId)
+  $.put("/members", {
+    id: 1,
+    user_liked_drinks: drinkStringId,
+  })
+  .then(function(id) {
+    console.log('Added your drinks to your favorites')
+    res.json(id)
+  })
 }
