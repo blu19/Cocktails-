@@ -66,26 +66,10 @@ form.login {
 
 .title{
     width: 100%;
-    padding: 0px;
-/*     font-size: 400%;
- */    margin: auto;
+    /* padding: 0px; */
+/* /*     font-size: 400%;
+ /*     margin: auto; */
     font-size: 100%;
-}
-
-
-#videoButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
-    border: none;
-    background: rgb(7, 11, 15);
-    color: rgb(167, 159, 148);
-    cursor: pointer;
-}
-
-#videoButton:hover {
-    background: rgb(167, 159, 148);
-    color: black;
 }
 
 .heropanel--video {
@@ -113,17 +97,19 @@ form.login {
     -o-animation:gm-slidein 3s 1;
     -webkit-animation:gm-slidein 3s 1;
     animation:gm-slidein 3s 1;
-    margin:0 auto;
+    margin: 1px 1px 1px 1px;
     max-width:100%;
-    padding:8em 0 4em;
+    padding:5em 0 3em 0;
     text-align:center;
 
 }
 
 .heropanel__content h1 {
-    font-size: 325%;
-    margin:0 0 .5em;
+    font-size: 305%;
+    margin:0 0 0 0;
     text-transform:uppercase;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .heropanel__content h1 a {
@@ -131,10 +117,11 @@ form.login {
 }
 
 .heropanel__content a {
-    margin: 0;
-    color: #3D3D3D;
+    margin: 0 0 0 0;
+    color: rgb(158, 152, 152);
     text-transform:uppercase;
     min-width: 50%;
+    position: relative;
 }
 
 #videoBG {
@@ -147,12 +134,11 @@ form.login {
         left: 0;
 }
 
-
-    
-
 /* Needs work on this for the styling */
 #landingLoginButton,#landingSignupButton  {
-    border: 0px solid black;}
+    border: 8px 8px 8px 8px solid black;
+    padding: 8px 8px 8px 8px;
+}
     @media screen and (min-width: 1087px) {
         #landingLoginButton,#landingSignupButton {
         border-bottom: 0px solid black;
