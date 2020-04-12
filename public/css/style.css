@@ -2,8 +2,6 @@ form.signup {
   margin-top: 50px;
 }
 
-<<<<<<< HEAD
-=======
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
@@ -16,9 +14,7 @@ form.signup {
     margin: 0;
 }
 
-<<<<<<< HEAD
->>>>>>> 92c869a9c6f788776e95611f1b19fc6edc3231f8
-=======
+
 #find-drink {
     
 }
@@ -32,7 +28,6 @@ form.signup {
     color: black;
 }
 
->>>>>>> 44fc91e4899660e0e5c162ef55ddb9ab88982e11
 form.login {
     margin-top: 50px;
 }
