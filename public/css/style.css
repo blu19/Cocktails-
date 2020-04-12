@@ -1,3 +1,29 @@
+form.signup {
+  margin-top: 50px;
+}
+
+#imageSignup {
+    background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
+#imageMembers {
+    background-image: url(https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
+form.login {
+    margin-top: 50px;
+}
+
+#imageLogin {
+    background-image: url(https://images.pexels.com/photos/681846/pexels-photo-681846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
 #videoBG {
     position: fixed;
     right: 0;
@@ -7,17 +33,25 @@
     min-height: 100%;
 }
 
-#landingButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
+
+#landingSignupButton, #landingLoginButton {
+   max-width:500px;
+   min-width:40px;
+    font-size: 25px;
+  /*   padding: 10px; */
     border: none;
     background: rgb(7, 11, 15);
     color: rgb(167, 159, 148);
     cursor: pointer;
+    margin: 0;
 }
 
-#landingButton:hover {
+#landingLoginButton:hover {
+    background: rgb(167, 159, 148);
+    color: black
+}
+
+#landingSignupButton:hover {
     background: rgb(167, 159, 148);
     color: black;
 }
@@ -31,12 +65,13 @@
 } */
 
 .title{
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    padding: 20px;
-    font-size: 400%;
+    padding: 0px;
+/*     font-size: 400%;
+ */    margin: auto;
+    font-size: 100%;
 }
+
 
 #videoButton {
     width: 10%;
@@ -52,3 +87,78 @@
     background: rgb(167, 159, 148);
     color: black;
 }
+
+.heropanel--video {
+    font-family:sans-serif;
+    min-height:500px;
+}
+
+@keyframes gm-slidein {
+    from {
+        -webkit-transform:translate3d(0,-100%,0);
+        opacity:0;
+        transform:translate3d(0,-100%,0);
+    }
+	
+    to {
+        -webkit-transform:none;
+        opacity:1;
+        transform:none;
+    }
+}
+
+.heropanel__content {
+    -moz-animation:gm-slidein 3s 1;
+    -ms-animation:gm-slidein 3s 1;
+    -o-animation:gm-slidein 3s 1;
+    -webkit-animation:gm-slidein 3s 1;
+    animation:gm-slidein 3s 1;
+    margin:0 auto;
+    max-width:100%;
+    padding:8em 0 4em;
+    text-align:center;
+
+}
+
+.heropanel__content h1 {
+    font-size: 325%;
+    margin:0 0 .5em;
+    text-transform:uppercase;
+}
+
+.heropanel__content h1 a {
+    text-decoration:none;
+}
+
+.heropanel__content a {
+    margin: 0;
+    color: #3D3D3D;
+    text-transform:uppercase;
+    min-width: 50%;
+}
+
+#videoBG {
+        border-right: 2px solid;
+        object-fit: cover;  
+        width: 100vw;    
+        height: 100vh;   
+        position: fixed;
+        top: 0;    
+        left: 0;
+}
+
+
+    
+
+/* Needs work on this for the styling */
+#landingLoginButton,#landingSignupButton  {
+    border: 0px solid black;}
+    @media screen and (min-width: 1087px) {
+        #landingLoginButton,#landingSignupButton {
+        border-bottom: 0px solid black;
+        font-size: 25px; } }
+    @media screen and (min-width: 400px) {
+        #landingLoginButton,#landingSignupButton {
+        margin: 0;
+        display: inline-block;
+        border-bottom: 0px solid black; } }

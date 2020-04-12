@@ -24,9 +24,12 @@ $(document).ready(function() {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(email, password) {
-    $.post("/api/signup", {
+    console.log("hello")
+    $.post("/signup", {
+      user_name: "username",
       email: email,
-      password: password
+      password: password,
+      user_dob: "1999-01-01",
     })
       .then(function(data) {
         window.location.replace("/members");
@@ -40,3 +43,4 @@ $(document).ready(function() {
     $("#alert").fadeIn(500);
   }
 });
+
