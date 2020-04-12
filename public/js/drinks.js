@@ -37,14 +37,16 @@ $(document).ready(function () {
     displayDrinks(drinksArray, indexCount)
   })
   $(document).on("click", ".like", function () {
-    var currentLikeId = this.value
-    likeDrinks(currentLikeId);
-    updateDrinksId(drinkStringId);
+    var currentLikeId = $(this).val()
+    // likeDrinks(currentLikeId,drinkStringId,updateDrinksId);
+    // updateDrinksId(drinkStringId);
+    updateLikeBtn(currentLikeId);
   })
   
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
+
 function displayDrinks(arry, counter) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
@@ -111,34 +113,48 @@ function testI(emStr, array) {
 
 
 //ROAD BLOCK TO ASK FOR TA'S AND WILL 
-var currentDrinkId;
-var drinkStringId;
 
-//Click Save Function 
-function likeDrinks(currentLikeId,drinkStringId) {
-  currentDrinkId = currentLikeId;
-  drinkStringId = currentDrinkId.toString();
-  console.log(currentLikeId)
-  console.log(typeof drinkStringId)
-  $.get("/members", {
-    id: 1, 
-   user_liked_drinks: drinkStringId,
-  })
-    .then(function(data) {
-      res.json(data)
-      // If there's an error, handle it by throwing up a bootstrap alert
-    })
-}
-console.log(drinkStringId)
+// global variables.. Is there a different way to give updateDrinksId access to drinkStringId???
+// var currentDrinkId;
+// var drinkStringId;
 
-function updateDrinksId(drinkStringId) {
-  // console.log(drinkStringId)
-  $.put("/members", {
-    id: 1,
-    user_liked_drinks: drinkStringId,
-  })
-  .then(function(id) {
-    console.log('Added your drinks to your favorites')
-    res.json(id)
-  })
+// //Click Save Function 
+// function likeDrinks(currentLikeId,drinkStringId,callback) {
+//   currentDrinkId = currentLikeId;
+//   drinkStringId = currentDrinkId.toString();
+//   console.log(currentLikeId)
+//   console.log(typeof drinkStringId)
+//   $.get("/members", {
+//     id: 1, 
+//    user_liked_drinks: drinkStringId,
+//   })
+//     .then(function(data) {
+//       console.log("---------------------------")
+//       console.log(callback)
+//       if(callback) {
+//         callback(drinkStringId);
+//       }
+//       res.json(data)
+//       // If there's an error, handle it by throwing up a bootstrap alert
+//     })
+// }
+
+// // unable to access drinkStringId from above function because of scope
+// function updateDrinksId(drinkStringId) {
+//   console.log("---------------------------")
+//   console.log(drinkStringId)
+//   ajax.put("/members", {
+//     id: 1,
+//     user_liked_drinks: drinkStringId,
+//   })
+//   .then(function(id) {
+//     console.log('Added your drinks to your favorites')
+//     res.json(id)
+//   })
+// }
+
+function updateLikeBtn(id) {
+  let drinkId = { id : id }
+  console.log(id)
+  $.post("/updatelikes", drinkId).then(() => console.log("hello"))
 }

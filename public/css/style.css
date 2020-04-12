@@ -11,12 +11,28 @@ form.signup {
 }
 
 #imageMembers {
-    background-image: url(https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-image: url(../misc/drink3.jpeg);
     background-size: cover;
     margin: 0;
 }
 
+<<<<<<< HEAD
 >>>>>>> 92c869a9c6f788776e95611f1b19fc6edc3231f8
+=======
+#find-drink {
+    
+}
+
+.drinkImg {
+    width: 25%;
+}
+
+#find-drink:hover {
+    background: rgb(77, 139, 231);
+    color: black;
+}
+
+>>>>>>> 44fc91e4899660e0e5c162ef55ddb9ab88982e11
 form.login {
     margin-top: 50px;
 }
@@ -36,29 +52,21 @@ form.login {
     min-height: 100%;
 }
 
-#landingLoginButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
+#logoutButton, #landingSignupButton, #landingLoginButton {
+   max-width:500px;
+   min-width:40px;
+    font-size: 25px;
+  /*   padding: 10px; */
     border: none;
     background: rgb(7, 11, 15);
     color: rgb(167, 159, 148);
     cursor: pointer;
-}
-
-#landingSignupButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
-    border: none;
-    background: rgb(7, 11, 15);
-    color: rgb(167, 159, 148);
-    cursor: pointer;
+    margin: 0;
 }
 
 #landingLoginButton:hover {
     background: rgb(167, 159, 148);
-    color: black;
+    color: black
 }
 
 #landingSignupButton:hover {
@@ -76,23 +84,10 @@ form.login {
 
 .title{
     width: 100%;
-    padding: 0px;
-    font-size: 400%;
-}
-
-#videoButton {
-    width: 10%;
-    font-size: 4%;
-    padding: 10px;
-    border: none;
-    background: rgb(7, 11, 15);
-    color: rgb(167, 159, 148);
-    cursor: pointer;
-}
-
-#videoButton:hover {
-    background: rgb(167, 159, 148);
-    color: black;
+    /* padding: 0px; */
+/* /*     font-size: 400%;
+ /*     margin: auto; */
+    font-size: 100%;
 }
 
 .heropanel--video {
@@ -106,7 +101,6 @@ form.login {
         opacity:0;
         transform:translate3d(0,-100%,0);
     }
-	
     to {
         -webkit-transform:none;
         opacity:1;
@@ -120,17 +114,19 @@ form.login {
     -o-animation:gm-slidein 3s 1;
     -webkit-animation:gm-slidein 3s 1;
     animation:gm-slidein 3s 1;
-    border-bottom:1px solid #FFF;
-    margin:0 auto;
-    max-width:50%;
-    padding:4em 0 2em;
+    margin: 1px 1px 1px 1px;
+    max-width:100%;
+    padding:5em 0 3em 0;
     text-align:center;
+
 }
 
 .heropanel__content h1 {
-    font-size: 400%;
-    margin:0 0 .5em;
+    font-size: 305%;
+    margin:0 0 0 0;
     text-transform:uppercase;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .heropanel__content h1 a {
@@ -138,13 +134,15 @@ form.login {
 }
 
 .heropanel__content a {
-    margin:0;
-    color: #3D3D3D;
+    margin: 0 0 0 0;
+    color: rgb(158, 152, 152);
     text-transform:uppercase;
+    min-width: 50%;
+    position: relative;
 }
 
 #videoBG {
-        border-right: 2px solid blue;
+        border-right: 2px solid;
         object-fit: cover;  
         width: 100vw;    
         height: 100vh;   
@@ -152,5 +150,19 @@ form.login {
         top: 0;    
         left: 0;
 }
-    
-    
+
+/* Needs work on this for the styling */
+#landingLoginButton,#landingSignupButton  {
+    border: 8px 8px 8px 8px solid black;
+    padding: 8px 8px 8px 8px;
+    font-family: 'Permanent Marker', cursive;
+}
+    @media screen and (min-width: 1087px) {
+        #landingLoginButton,#landingSignupButton {
+        border-bottom: 0px solid black;
+        font-size: 25px; } }
+    @media screen and (min-width: 400px) {
+        #landingLoginButton,#landingSignupButton {
+        margin: 0;
+        display: inline-block;
+        border-bottom: 0px solid black; } }
