@@ -36,6 +36,12 @@ $(document).ready(function () {
     indexCount++
     displayDrinks(drinksArray, indexCount)
   })
+  $(document).on("click", ".like", function () {
+    var currentLikeId = this.value
+    likeDrinks(currentLikeId);
+    updateDrinksId(drinkStringId);
+  })
+  
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
@@ -46,12 +52,14 @@ function displayDrinks(arry, counter) {
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
   const arrows = $("<button class='next' value='" + arry[counter].idDrink + "'>").text("next")
+  const like = $("<button class='like' value='" + arry[counter].idDrink + "'>").text("like")
 
   strTitle.append(arrows)
   divTemp.append(strTitle)
   fgTemp.append(imgTemp)
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
+  newBtn.append(like)
   $("#results").append(newBtn)
 
   const ingUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + arry[counter].idDrink
@@ -71,7 +79,7 @@ function getIngredients(array) {
 
   tempStr = testI(tempStr, newArray)
 
-  $("#ingredientsRes").html(`<h3>Drink Name: ${strDrink} </h3>
+  $("#ingredientsRes").html(`<h3>Drink Name: ${strDrink} </h3> 
   <br>
   <h6> Category: ${strCategory} <h6>
 
@@ -80,6 +88,7 @@ function getIngredients(array) {
   <h6> Instructions: ${strInstructions} </h6>
 
   <h6> ${tempStr} </h6>
+
   `)
 
 
@@ -95,4 +104,41 @@ function testI(emStr, array) {
       ${ array[i][1]}: ${array[i + 15][1] === null ? "your decision" : array[i + 15][1]} <br>`
     }
   }
+}
+
+
+
+
+
+//ROAD BLOCK TO ASK FOR TA'S AND WILL 
+var currentDrinkId;
+var drinkStringId;
+
+//Click Save Function 
+function likeDrinks(currentLikeId,drinkStringId) {
+  currentDrinkId = currentLikeId;
+  drinkStringId = currentDrinkId.toString();
+  console.log(currentLikeId)
+  console.log(typeof drinkStringId)
+  $.get("/members", {
+    id: 1, 
+   user_liked_drinks: drinkStringId,
+  })
+    .then(function(data) {
+      res.json(data)
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+}
+console.log(drinkStringId)
+
+function updateDrinksId(drinkStringId) {
+  // console.log(drinkStringId)
+  $.put("/members", {
+    id: 1,
+    user_liked_drinks: drinkStringId,
+  })
+  .then(function(id) {
+    console.log('Added your drinks to your favorites')
+    res.json(id)
+  })
 }

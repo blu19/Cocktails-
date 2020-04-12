@@ -2,8 +2,29 @@ form.signup {
   margin-top: 50px;
 }
 
+<<<<<<< HEAD
+=======
+#imageSignup {
+    background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
+#imageMembers {
+    background-image: url(https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
+}
+
+>>>>>>> 92c869a9c6f788776e95611f1b19fc6edc3231f8
 form.login {
-  margin-top: 50px;
+    margin-top: 50px;
+}
+
+#imageLogin {
+    background-image: url(https://images.pexels.com/photos/681846/pexels-photo-681846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    margin: 0;
 }
 
 #videoBG {
@@ -15,7 +36,7 @@ form.login {
     min-height: 100%;
 }
 
-#landingButton {
+#landingLoginButton {
     width: 10%;
     font-size: 4%;
     padding: 10px;
@@ -25,7 +46,22 @@ form.login {
     cursor: pointer;
 }
 
-#landingButton:hover {
+#landingSignupButton {
+    width: 10%;
+    font-size: 4%;
+    padding: 10px;
+    border: none;
+    background: rgb(7, 11, 15);
+    color: rgb(167, 159, 148);
+    cursor: pointer;
+}
+
+#landingLoginButton:hover {
+    background: rgb(167, 159, 148);
+    color: black;
+}
+
+#landingSignupButton:hover {
     background: rgb(167, 159, 148);
     color: black;
 }
@@ -39,10 +75,8 @@ form.login {
 } */
 
 .title{
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 0px;
     font-size: 400%;
 }
 
@@ -60,3 +94,63 @@ form.login {
     background: rgb(167, 159, 148);
     color: black;
 }
+
+.heropanel--video {
+    font-family:sans-serif;
+    min-height:500px;
+}
+
+@keyframes gm-slidein {
+    from {
+        -webkit-transform:translate3d(0,-100%,0);
+        opacity:0;
+        transform:translate3d(0,-100%,0);
+    }
+	
+    to {
+        -webkit-transform:none;
+        opacity:1;
+        transform:none;
+    }
+}
+
+.heropanel__content {
+    -moz-animation:gm-slidein 3s 1;
+    -ms-animation:gm-slidein 3s 1;
+    -o-animation:gm-slidein 3s 1;
+    -webkit-animation:gm-slidein 3s 1;
+    animation:gm-slidein 3s 1;
+    border-bottom:1px solid #FFF;
+    margin:0 auto;
+    max-width:50%;
+    padding:4em 0 2em;
+    text-align:center;
+}
+
+.heropanel__content h1 {
+    font-size: 400%;
+    margin:0 0 .5em;
+    text-transform:uppercase;
+}
+
+.heropanel__content h1 a {
+    text-decoration:none;
+}
+
+.heropanel__content a {
+    margin:0;
+    color: #3D3D3D;
+    text-transform:uppercase;
+}
+
+#videoBG {
+        border-right: 2px solid blue;
+        object-fit: cover;  
+        width: 100vw;    
+        height: 100vh;   
+        position: fixed;
+        top: 0;    
+        left: 0;
+}
+    
+    

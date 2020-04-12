@@ -33,7 +33,7 @@ $(document).ready(function() {
       user_location: "location",
       user_drinks: "drinks",
       user_liked_drinks: "likes",
-      user_disliked_drinks: "dislikes"      
+      user_disliked_drinks: "dislikes"
     })
       .then(function(data) {
         window.location.replace("/members");
