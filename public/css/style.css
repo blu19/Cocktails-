@@ -9,9 +9,22 @@ form.signup {
 }
 
 #imageMembers {
-    background-image: url(https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-image: url(../misc/drink3.jpeg);
     background-size: cover;
     margin: 0;
+}
+
+#find-drink {
+    
+}
+
+.drinkImg {
+    width: 25%;
+}
+
+#find-drink:hover {
+    background: rgb(77, 139, 231);
+    color: black;
 }
 
 form.login {
@@ -33,8 +46,7 @@ form.login {
     min-height: 100%;
 }
 
-
-#landingSignupButton, #landingLoginButton {
+#logoutButton, #landingSignupButton, #landingLoginButton {
    max-width:500px;
    min-width:40px;
     font-size: 25px;
@@ -83,7 +95,6 @@ form.login {
         opacity:0;
         transform:translate3d(0,-100%,0);
     }
-	
     to {
         -webkit-transform:none;
         opacity:1;
@@ -138,6 +149,7 @@ form.login {
 #landingLoginButton,#landingSignupButton  {
     border: 8px 8px 8px 8px solid black;
     padding: 8px 8px 8px 8px;
+    font-family: 'Permanent Marker', cursive;
 }
     @media screen and (min-width: 1087px) {
         #landingLoginButton,#landingSignupButton {
