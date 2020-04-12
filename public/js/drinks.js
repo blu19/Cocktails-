@@ -46,6 +46,7 @@ $(document).ready(function () {
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
+
 function displayDrinks(arry, counter) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
