@@ -35,11 +35,20 @@ $(document).ready(function() {
         window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
-      .catch(handleLoginErr);
+      .catch(function(err){
+        console.log("in the .catch++++++++++++")
+        console.log(err)
+        handleLoginErr(err)})
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    console.log("in the handleLoginErr")
+    console.log(err.responseJSON)
+    let alertMessage;
+    for (let index = 0; index < err.responseJSON.errors.length; index++) {
+      alertMessage = alertMessage + " " + err.responseJSON.errors[index].message;
+    }
+    $("#alert .msg").text(alertMessage);
     $("#alert").fadeIn(500);
   }
 });
