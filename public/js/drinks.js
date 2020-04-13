@@ -34,8 +34,27 @@ $(document).ready(function () {
   $(document).on("click", ".next", function () {
     $(".drinkResults").remove()
     indexCount++
-    displayDrinks(drinksArray, indexCount)
+    if (indexCount === drinksArray.length) {
+      indexCount = 0
+      displayDrinks(drinksArray, indexCount)
+    } else {
+      displayDrinks(drinksArray, indexCount)
+    }
   })
+
+  $(document).on("click", ".prev", function () {
+    $(".drinkResults").remove()
+    indexCount--
+    if (indexCount === -1) {
+      indexCount = drinksArray.length - 1
+      console.log(indexCount)
+      displayDrinks(drinksArray, indexCount)
+    } else {
+      displayDrinks(drinksArray, indexCount)
+    }
+  })
+
+
   $(document).on("click", ".like", function () {
     var currentLikeId = $(this).val()
     var currentDrinkName = this.name
@@ -43,23 +62,25 @@ $(document).ready(function () {
     // updateDrinksId(drinkStringId);
     updateLikeBtn(currentLikeId, currentDrinkName);
   })
-  
+
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
-
 function displayDrinks(arry, counter) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
-  const arrows = $("<button class='next' value='" + arry[counter].idDrink + "'>").text("next")
   const like = $("<button class='like' name='" + arry[counter].strDrink + "' value='" + arry[counter].idDrink + "'>").text("like")
+  const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
+  const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
 
-  strTitle.append(arrows)
+
   divTemp.append(strTitle)
+  fgTemp.append(prev)
   fgTemp.append(imgTemp)
+  fgTemp.append(next)
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
   newBtn.append(like)
@@ -77,7 +98,6 @@ function displayDrinks(arry, counter) {
 function getIngredients(array) {
   const { strDrink, strCategory, strAlcoholic, strInstructions } = array[0]
   const newArray = Object.entries(array[0])
-  console.log(newArray)
   var tempStr = ""
 
   tempStr = testI(tempStr, newArray)
@@ -94,8 +114,6 @@ function getIngredients(array) {
 
   `)
 
-
-  // `)
 }
 
 function testI(emStr, array) {
