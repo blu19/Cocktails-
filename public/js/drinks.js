@@ -57,7 +57,10 @@ $(document).ready(function () {
 
   $(document).on("click", ".like", function () {
     var currentLikeId = $(this).val()
-    updateLikeBtn(currentLikeId);
+    var currentDrinkName = this.name
+    // likeDrinks(currentLikeId,drinkStringId,updateDrinksId);
+    // updateDrinksId(drinkStringId);
+    updateLikeBtn(currentLikeId, currentDrinkName);
   })
 
 })
@@ -69,9 +72,9 @@ function displayDrinks(arry, counter) {
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
+  const like = $("<button class='like' name='" + arry[counter].strDrink + "' value='" + arry[counter].idDrink + "'>").text("like")
   const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
   const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
-  const like = $("<button class='like' value='" + arry[counter].idDrink + "'>").text("like")
 
 
   divTemp.append(strTitle)
@@ -99,7 +102,7 @@ function getIngredients(array) {
 
   tempStr = testI(tempStr, newArray)
 
-  $("#ingredientsRes").html(`<h3>Drink Name: ${strDrink} </h3> 
+  $("#ingredientsRes").html(`<h3 id="drinkName">Drink Name: ${strDrink} </h3> 
   <br>
   <h6> Category: ${strCategory} <h6>
 
@@ -125,8 +128,63 @@ function testI(emStr, array) {
 }
 
 
-function updateLikeBtn(id) {
-  let drinkId = { id: id }
-  console.log(id)
-  $.post("/updatelikes", drinkId).then(() => console.log("hello"))
+
+
+
+//ROAD BLOCK TO ASK FOR TA'S AND WILL 
+
+// global variables.. Is there a different way to give updateDrinksId access to drinkStringId???
+// var currentDrinkId;
+// var drinkStringId;
+
+// //Click Save Function 
+// function likeDrinks(currentLikeId,drinkStringId,callback) {
+//   currentDrinkId = currentLikeId;
+//   drinkStringId = currentDrinkId.toString();
+//   console.log(currentLikeId)
+//   console.log(typeof drinkStringId)
+//   $.get("/members", {
+//     id: 1, 
+//    user_liked_drinks: drinkStringId,
+//   })
+//     .then(function(data) {
+//       console.log("---------------------------")
+//       console.log(callback)
+//       if(callback) {
+//         callback(drinkStringId);
+//       }
+//       res.json(data)
+//       // If there's an error, handle it by throwing up a bootstrap alert
+//     })
+// }
+
+// // unable to access drinkStringId from above function because of scope
+// function updateDrinksId(drinkStringId) {
+//   console.log("---------------------------")
+//   console.log(drinkStringId)
+//   ajax.put("/members", {
+//     id: 1,
+//     user_liked_drinks: drinkStringId,
+//   })
+//   .then(function(id) {
+//     console.log('Added your drinks to your favorites')
+//     res.json(id)
+//   })
+// }
+
+function updateLikeBtn(id, name) {
+  // let drinkId = id
+  let drinkId = { id : id, name : name }
+  drinkId = JSON.stringify(drinkId)
+  console.log(typeof drinkId, "----------------")
+  console.log(drinkId, "*******")
+  // console.log(drinkId)
+  // console.log(drinkName, "--------------")
+
+
+  $.post("/updatelikes", {
+    id: id,
+    name: name,
+  }).then(() => console.log("You've liked this drink")  
+  )
 }
