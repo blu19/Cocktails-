@@ -4,6 +4,7 @@
     "password": "NewPassword",
     "database": "drinks_db",
     "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
@@ -11,13 +12,15 @@
     "password": "es915696",
     "database": "drinks_db",
     "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "es915696",
-    "database": "drinks_db",
-    "host": "127.0.0.1",
+    "use_env_variable": "JAWSDB_URL",
+    "host": "l6slz5o3eduzatkw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "su7ttr2pp64bvnqs",
+    "password": "f72jeu7oo3rddq2g",
+    "database": "zpweumxjkrngbhjb",
     "dialect": "mysql"
   }
 }

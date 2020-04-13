@@ -22,10 +22,6 @@ module.exports = function (app) {
       email: req.body.email,
       password: req.body.password,
       user_dob: req.body.user_dob,
-      user_location: req.body.user_location,
-      user_drinks: req.body.user_drinks,
-      user_liked_drinks: req.body.user_liked_drinks,
-      user_disliked_drinks: req.body.user_disliked_drinks
     })
       .then(function () {
         res.redirect(307, "/login");
@@ -70,16 +66,15 @@ module.exports = function (app) {
       });
     }
   });
-      app.post("/updatelikes",function(req, res){
+      app.post("/updatelikes", function(req, res){
         console.log("----------------------------------------------------")
-        db.User.update(
-          { user_liked_drinks: JSON.stringify([req.body.id])},
-          {
-            where: {
-              id: req.user.id
-            }
-        }).then(data => res.json(data))
-        
+        console.log(req.body)
+        console.log(req.body.name);
+        db.LikedDrinks.create({ 
+          userId: req.user.id,
+          drinksId: req.body.id,
+          drinksName: req.body.name         
+          })
+          .then(data => res.json(data))
       });
 };
-

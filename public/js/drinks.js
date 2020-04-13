@@ -38,9 +38,10 @@ $(document).ready(function () {
   })
   $(document).on("click", ".like", function () {
     var currentLikeId = $(this).val()
+    var currentDrinkName = this.name
     // likeDrinks(currentLikeId,drinkStringId,updateDrinksId);
     // updateDrinksId(drinkStringId);
-    updateLikeBtn(currentLikeId);
+    updateLikeBtn(currentLikeId, currentDrinkName);
   })
   
 })
@@ -54,7 +55,7 @@ function displayDrinks(arry, counter) {
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
   const arrows = $("<button class='next' value='" + arry[counter].idDrink + "'>").text("next")
-  const like = $("<button class='like' value='" + arry[counter].idDrink + "'>").text("like")
+  const like = $("<button class='like' name='" + arry[counter].strDrink + "' value='" + arry[counter].idDrink + "'>").text("like")
 
   strTitle.append(arrows)
   divTemp.append(strTitle)
@@ -81,7 +82,7 @@ function getIngredients(array) {
 
   tempStr = testI(tempStr, newArray)
 
-  $("#ingredientsRes").html(`<h3>Drink Name: ${strDrink} </h3> 
+  $("#ingredientsRes").html(`<h3 id="drinkName">Drink Name: ${strDrink} </h3> 
   <br>
   <h6> Category: ${strCategory} <h6>
 
@@ -153,8 +154,19 @@ function testI(emStr, array) {
 //   })
 // }
 
-function updateLikeBtn(id) {
-  let drinkId = { id : id }
-  console.log(id)
-  $.post("/updatelikes", drinkId).then(() => console.log("hello"))
+function updateLikeBtn(id, name) {
+  // let drinkId = id
+  let drinkId = { id : id, name : name }
+  drinkId = JSON.stringify(drinkId)
+  console.log(typeof drinkId, "----------------")
+  console.log(drinkId, "*******")
+  // console.log(drinkId)
+  // console.log(drinkName, "--------------")
+
+
+  $.post("/updatelikes", {
+    id: id,
+    name: name,
+  }).then(() => console.log("You've liked this drink")  
+  )
 }
