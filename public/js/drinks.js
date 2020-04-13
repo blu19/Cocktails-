@@ -34,31 +34,50 @@ $(document).ready(function () {
   $(document).on("click", ".next", function () {
     $(".drinkResults").remove()
     indexCount++
-    displayDrinks(drinksArray, indexCount)
+    if (indexCount === drinksArray.length) {
+      indexCount = 0
+      displayDrinks(drinksArray, indexCount)
+    } else {
+      displayDrinks(drinksArray, indexCount)
+    }
   })
+
+  $(document).on("click", ".prev", function () {
+    $(".drinkResults").remove()
+    indexCount--
+    if (indexCount === -1) {
+      indexCount = drinksArray.length - 1
+      console.log(indexCount)
+      displayDrinks(drinksArray, indexCount)
+    } else {
+      displayDrinks(drinksArray, indexCount)
+    }
+  })
+
+
   $(document).on("click", ".like", function () {
     var currentLikeId = $(this).val()
-    // likeDrinks(currentLikeId,drinkStringId,updateDrinksId);
-    // updateDrinksId(drinkStringId);
     updateLikeBtn(currentLikeId);
   })
-  
+
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
-
 function displayDrinks(arry, counter) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
-  const arrows = $("<button class='next' value='" + arry[counter].idDrink + "'>").text("next")
+  const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
+  const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
   const like = $("<button class='like' value='" + arry[counter].idDrink + "'>").text("like")
 
-  strTitle.append(arrows)
+
   divTemp.append(strTitle)
+  fgTemp.append(prev)
   fgTemp.append(imgTemp)
+  fgTemp.append(next)
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
   newBtn.append(like)
@@ -76,7 +95,6 @@ function displayDrinks(arry, counter) {
 function getIngredients(array) {
   const { strDrink, strCategory, strAlcoholic, strInstructions } = array[0]
   const newArray = Object.entries(array[0])
-  console.log(newArray)
   var tempStr = ""
 
   tempStr = testI(tempStr, newArray)
@@ -93,8 +111,6 @@ function getIngredients(array) {
 
   `)
 
-
-  // `)
 }
 
 function testI(emStr, array) {
@@ -109,52 +125,8 @@ function testI(emStr, array) {
 }
 
 
-
-
-
-//ROAD BLOCK TO ASK FOR TA'S AND WILL 
-
-// global variables.. Is there a different way to give updateDrinksId access to drinkStringId???
-// var currentDrinkId;
-// var drinkStringId;
-
-// //Click Save Function 
-// function likeDrinks(currentLikeId,drinkStringId,callback) {
-//   currentDrinkId = currentLikeId;
-//   drinkStringId = currentDrinkId.toString();
-//   console.log(currentLikeId)
-//   console.log(typeof drinkStringId)
-//   $.get("/members", {
-//     id: 1, 
-//    user_liked_drinks: drinkStringId,
-//   })
-//     .then(function(data) {
-//       console.log("---------------------------")
-//       console.log(callback)
-//       if(callback) {
-//         callback(drinkStringId);
-//       }
-//       res.json(data)
-//       // If there's an error, handle it by throwing up a bootstrap alert
-//     })
-// }
-
-// // unable to access drinkStringId from above function because of scope
-// function updateDrinksId(drinkStringId) {
-//   console.log("---------------------------")
-//   console.log(drinkStringId)
-//   ajax.put("/members", {
-//     id: 1,
-//     user_liked_drinks: drinkStringId,
-//   })
-//   .then(function(id) {
-//     console.log('Added your drinks to your favorites')
-//     res.json(id)
-//   })
-// }
-
 function updateLikeBtn(id) {
-  let drinkId = { id : id }
+  let drinkId = { id: id }
   console.log(id)
   $.post("/updatelikes", drinkId).then(() => console.log("hello"))
 }
