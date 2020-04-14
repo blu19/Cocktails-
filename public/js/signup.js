@@ -35,16 +35,6 @@ $(document).ready(function() {
       email: email,
       password: password,
       user_dob: user_dob,
-      
-      authBday: function () {
-        computedAge = moment(birthdateInput, "MM/DD/YYYY");
-        diffAge = moment().diff(computedAge, "years");
-           if(diffAge > 21) {
-             window.location.replace("/members");
-            } else {
-              window.location.href = "http://wwww.nick.com"
-    }
-      }
 
     })
       .then(function(data) {
@@ -68,22 +58,5 @@ $(document).ready(function() {
     $("#alert").fadeIn(500);
   }
 });
-
-// Dob authentiation and error message add a second submit button to run two seperate functions
-
-  // $("#submitBtn").on("click", function(e) {
-  //   e.preventDefault();
-  //   userAge = $("#dob-input").val().trim();
-
-  //   computedAge = moment(userAge, "MM/DD/YYYY");
-
-  //   diffAge = moment().diff(computedAge, "years");
-
-  //   if(diffAge > 21) {
-  //     window.location.replace("/members");
-  //   } else {
-  //     window.location.href = "http://wwww.nick.com"
-  //   }
-  // })
 
 

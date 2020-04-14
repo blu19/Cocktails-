@@ -10,3 +10,16 @@ function playPause() {
     btn.innerHTML = "Play";
   }
 }
+
+$("#modalBtnLeft").on("click", function(){
+  console.log("click")
+  window.location.href = "http://localhost:8080/login.html"
+})
+
+
+$("#modalBtnRight").on("click", function(){
+  console.log("click")
+  window.location.href = "http://www.eelslap.com/"
+})
+
+
