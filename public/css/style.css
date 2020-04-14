@@ -69,6 +69,52 @@ form.login {
     color: black;
 }
 
+#Qstn{
+    font-family: 'Bangers', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
+#modalBtnLeft:hover{
+    background: linear-gradient(to top,  rgb(45, 59, 50), #FBFBFB);  
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+}
+
+
+#modalBtnRight:hover{
+    background: linear-gradient(to top,  rgb(45, 59, 50), #FBFBFB);  
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+}
+
+#modalBtnLeft, #modalBtnRight {   
+     animation: pulse 2s infinite; 
+     border-radius: 20px;
+     cursor: pointer;
+}
+
+#modalBtnRight {    
+    font-family: 'Bangers', cursive;
+    text-align: center;    font-size: 25px;
+    padding: 0 20px 0 70px;
+}
+
+#modalBtnLeft {    
+    font-family: 'Bangers', cursive;
+    text-align: center;    font-size: 25px;
+    padding: 0 20px 0 70px;
+}
+
+
+@keyframes pulse {   
+     0%{        box-shadow: 0 0 0 0 rgba(65, 75, 65, 0.99);    }   
+    70%{        box-shadow: 0 0 0 2rem rgba(6, 190, 6, 0);    }   
+   100%{        box-shadow: 0 0 0 0 rgba(51, 61, 51, 0.99);    }
+}
+
+
+
 /* #landingContent {
     position: fixed;
     left: 75%;
