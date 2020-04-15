@@ -12,23 +12,33 @@
 </head>
 
 <body id="imageMembers">
-            <a href="/logout">
-              <button id="logoutButton">Logout</button>
-            </a>
+  <a href="/logout">
+    <button id="logoutButton">Logout</button>
+  </a>
 
   <div class="container">
-    <h1>Drink Search</h1>
-    <form id="test-response">
-      <label for="drink-input">Search for a Drink</label>
-      <input type="text" id="drink-input" /><br />
-      <input id="find-drink" type="submit" value="Drink Search" />
-    </form>
-    <div id="results"></div>
 
-    <br />
+    <div class="col-sm-9 floatLeft">
+      <h1>Drink Search</h1>
+      <form id="test-response">
+        <label for="drink-input">Search for a Drink</label>
+        <input type="text" id="drink-input" />
+        <input id="find-drink" type="submit" value="Drink Search" />
+      </form>
+      <br>
+      <br>
+      <div id="results"></div>
+      <br />
+      <div id="ingredientsRes"></div>
+    </div>
 
-    <div id="ingredientsRes"></div>
+    <div class="col-sm-3 floatRight">
+      <div id="likedTable">
+      </div>
+
+    </div>
   </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./js/drinks.js" type="text/javascript"></script>
