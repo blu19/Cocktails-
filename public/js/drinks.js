@@ -2,9 +2,27 @@ $(document).ready(function () {
   let drinksArray = []
   let indexCount = 0
 
+  getFavorites()
+
+  $(document).on("click", ".favRow", function () {
+
+    const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + $(this).data("value")
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response)
+      $(".drinkResults").remove()
+      displayDrinks(response.drinks, 0)
+      $(".next").hide()
+      $(".prev").hide()
+    })
+  })
+
   $("#find-drink").on("click", function (event) {
     event.preventDefault()
-
+    $(".drinkResults").remove()
     const data = $("#drink-input").val().trim()
     const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + data
 
@@ -17,19 +35,6 @@ $(document).ready(function () {
       displayDrinks(drinksArray, indexCount)
     })
   })
-
-  // //whenever button clicked...
-  // $(document).on("click", ".drinkResults", function () {
-  //   const index = this.value
-  //   const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + index
-
-  //   $.ajax({
-  //     url: queryURL,
-  //     method: "GET",
-  //   }).then(function (res) {
-  //     getIngredients(res.drinks)
-  //   })
-  // })
 
   $(document).on("click", ".next", function () {
     $(".drinkResults").remove()
@@ -58,9 +63,8 @@ $(document).ready(function () {
   $(document).on("click", ".like", function () {
     var currentLikeId = $(this).val()
     var currentDrinkName = this.name
-    // likeDrinks(currentLikeId,drinkStringId,updateDrinksId);
-    // updateDrinksId(drinkStringId);
     updateLikeBtn(currentLikeId, currentDrinkName);
+    getFavorites()
   })
 
 })
@@ -76,7 +80,6 @@ function displayDrinks(arry, counter) {
   const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
   const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
 
-
   divTemp.append(strTitle)
   fgTemp.append(prev)
   fgTemp.append(imgTemp)
@@ -88,7 +91,6 @@ function displayDrinks(arry, counter) {
 
   const ingUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + arry[counter].idDrink
   $.get(ingUrl, function (data) {
-    console.log(data.drinks)
     getIngredients(data.drinks)
   })
 }
@@ -128,63 +130,30 @@ function testI(emStr, array) {
 }
 
 
-
-
-
-//ROAD BLOCK TO ASK FOR TA'S AND WILL 
-
-// global variables.. Is there a different way to give updateDrinksId access to drinkStringId???
-// var currentDrinkId;
-// var drinkStringId;
-
-// //Click Save Function 
-// function likeDrinks(currentLikeId,drinkStringId,callback) {
-//   currentDrinkId = currentLikeId;
-//   drinkStringId = currentDrinkId.toString();
-//   console.log(currentLikeId)
-//   console.log(typeof drinkStringId)
-//   $.get("/members", {
-//     id: 1, 
-//    user_liked_drinks: drinkStringId,
-//   })
-//     .then(function(data) {
-//       console.log("---------------------------")
-//       console.log(callback)
-//       if(callback) {
-//         callback(drinkStringId);
-//       }
-//       res.json(data)
-//       // If there's an error, handle it by throwing up a bootstrap alert
-//     })
-// }
-
-// // unable to access drinkStringId from above function because of scope
-// function updateDrinksId(drinkStringId) {
-//   console.log("---------------------------")
-//   console.log(drinkStringId)
-//   ajax.put("/members", {
-//     id: 1,
-//     user_liked_drinks: drinkStringId,
-//   })
-//   .then(function(id) {
-//     console.log('Added your drinks to your favorites')
-//     res.json(id)
-//   })
-// }
-
 function updateLikeBtn(id, name) {
-  // let drinkId = id
-  let drinkId = { id : id, name : name }
+  let drinkId = { id: id, name: name }
   drinkId = JSON.stringify(drinkId)
-  console.log(typeof drinkId, "----------------")
-  console.log(drinkId, "*******")
-  // console.log(drinkId)
-  // console.log(drinkName, "--------------")
-
 
   $.post("/updatelikes", {
     id: id,
     name: name,
-  }).then(() => console.log("You've liked this drink")  
+  }).then(() => console.log("You've liked this drink")
   )
+}
+
+function getFavorites() {
+  $(".tempDiv").remove()
+  console.log("working?")
+  $.ajax({
+    url: "/favorites",
+    method: "GET",
+  }).then(function (response) {
+    for (i = 0; i < response.length; i++) {
+      const outterDiv = $("<div class = tempDiv>")
+      const newFav = $("<div class='favRow' data-value='" + response[i].drinksId + "'>").text(response[i].drinksName)
+
+      outterDiv.append(newFav)
+      $("#likedTable").append(outterDiv)
+    }
+  })
 }

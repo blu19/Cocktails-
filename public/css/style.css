@@ -6,17 +6,25 @@ form.signup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
     margin: 0;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 #imageMembers {
     background-image: url(../misc/drink3.jpeg);
     background-size: cover;
     margin: 0;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 
-#find-drink {
-    
+.floatRight{
+    float: right;
+}
+
+.floatLeft{
+    float: left;
 }
 
 .drinkImg {
@@ -36,6 +44,8 @@ form.login {
     background-image: url(https://images.pexels.com/photos/681846/pexels-photo-681846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
     margin: 0;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 #videoBG {

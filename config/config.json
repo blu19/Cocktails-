@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "es915696",
+    "password": "password",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "port": 3306,
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": "es915696",
+    "password": "password",
     "database": "drinks_db",
     "host": "127.0.0.1",
     "port": 3306,
