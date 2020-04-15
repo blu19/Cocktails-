@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true,
+        isEmail: true
       },
     },
     // The password cannot be null
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     user_dob: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       // allowNull: false,
       default: "1999-01-01",
     }

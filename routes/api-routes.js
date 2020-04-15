@@ -27,7 +27,9 @@ module.exports = function (app) {
         res.redirect(307, "/login");
       })
       .catch(function (err) {
-          console.log(err)
+        console.log("message here?&&&&&&&&&&&&&&&")
+        console.log(err)
+        console.log("Yes it is-------------------");
         res.status(401).json(err);
       });
   });

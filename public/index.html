@@ -7,7 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header class="heropanel--video"
@@ -22,12 +25,32 @@
                 <button id="landingLoginButton">Log In</button>
             </a>
         </div>
+        <div class="modal is-active" data-aos="flip-up"    data-aos-easing="ease-out-cubic"    data-aos-delay="800"    data-aos-duration="2000">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <button class="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                <p id = "Qstn">Are you over the age of 21? Please click down below.</p>
+              </section>
+              <footer class="modal-card-foot">
+                <button  id = "modalBtnLeft" class="button is-success"> <p id = "ageBtnLeft">I am over 21</p></button>
+                <button  id = "modalBtnRight" class="button"> <p id = "ageBtnRight" > Not old enough to have fun yet</p>    </button>
+              </footer>
+            </div>
+          </div>          
     </header>
     <video id="videoBG" autoplay muted loop>
         <source src="./misc/drink.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
     </video>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
