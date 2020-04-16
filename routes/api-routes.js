@@ -35,7 +35,7 @@ module.exports = function (app) {
   });
 
 
-  //ROAD BLOCK TO ASK FOR TA'S AND WILL 
+  
 
   app.post("/members", function (req, res) {
     console.log(req.body.id)
