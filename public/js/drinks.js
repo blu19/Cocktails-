@@ -81,7 +81,7 @@ function displayDrinks(arry, counter, likedArray) {
   const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
   const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
 
-  divTemp.append(strTitle)
+  // divTemp.append(strTitle)
   fgTemp.append(prev)
   fgTemp.append(imgTemp)
   fgTemp.append(next)
@@ -129,17 +129,19 @@ function getIngredients(array) {
 
   tempStr = testI(tempStr, newArray)
 
-  $("#ingredientsRes").html(`<h3 id="drinkName">Drink Name: ${strDrink} </h3> 
+  $("#ingredientsRes").html(`\ <div class= "border-box" </div> <h1 id="drinkName"> ${strDrink} </h1> 
   <br>
-  <h6> Category: ${strCategory} <h6>
-
-  <h6> ${strAlcoholic} </h6> 
-
-  <h6> Instructions: ${strInstructions} </h6>
-
-  <h6> ${tempStr} </h6>
-
-  `)
+  <br>
+  <h4> Category: ${strCategory} <h4>
+  <br>
+  <br>
+  <h4> ${strAlcoholic} </h4> 
+  <br>
+  <br>
+  <h4> Instructions: ${strInstructions} </h4>
+  <br>
+  <br>
+  <h4> ${tempStr} </h4>`)
 
 }
 

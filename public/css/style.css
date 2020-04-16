@@ -2,15 +2,33 @@ form.signup {
   margin-top: 50px;
 }
 
-#ingredientsRes, #drinkName, h6 {
-  background-color: #fff;
+#ingredientsRes, #drinkName, h4 {
+  /* background-color: rgb(0, 0, 0); */
   opacity: 0.8;  
-  color: black; 
+  color: rgb(0, 0, 0); 
   display: inline;
-  padding: 0.5rem;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
+
+.border-box{
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.border-box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(216, 216, 216);
+    filter: blur(6px);
+    opacity: 0.5;
+    /* z-index: 1; */
+  }
 
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
