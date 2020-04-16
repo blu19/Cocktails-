@@ -57,13 +57,19 @@ form.login {
     min-height: 100%;
 }
 
+.logoutTitle {
+}
+
+.signupTitle {
+}
+
 #logoutButton, #landingSignupButton, #landingLoginButton {
-   max-width:500px;
-   min-width:40px;
+    max-width:500px;
+    min-width:40px;
     font-size: 25px;
   /*   padding: 10px; */
     border: none;
-    background: rgb(7, 11, 15);
+    background: rgb(7, 11, 15);  
     color: rgb(167, 159, 148);
     cursor: pointer;
     margin: 0;
@@ -107,13 +113,13 @@ form.login {
 #modalBtnRight {    
     font-family: 'Bangers', cursive;
     text-align: center;    font-size: 25px;
-    padding: 0 20px 0 70px;
+    padding: 0 45px 0 45px;
 }
 
 #modalBtnLeft {    
     font-family: 'Bangers', cursive;
     text-align: center;    font-size: 25px;
-    padding: 0 20px 0 70px;
+    padding: 0 45px 0 45px;
 }
 
 
