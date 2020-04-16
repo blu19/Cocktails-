@@ -24,7 +24,6 @@ $(document).ready(function () {
     var day = d.getDate();
     var evaluatedDate = new Date(year - 21, month, day);
 
-
     if (!userData.email || !userData.password || userDob >= evaluatedDate) {
       window.location.href = "http://www.eelslap.com/"
       return;
