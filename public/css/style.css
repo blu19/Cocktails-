@@ -2,6 +2,16 @@ form.signup {
   margin-top: 50px;
 }
 
+#ingredientsRes, #drinkName, h6 {
+  background-color: #fff;
+  opacity: 0.8;  
+  color: black; 
+  display: inline;
+  padding: 0.5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
@@ -17,7 +27,6 @@ form.signup {
     background-repeat: no-repeat;
     height: 100vh;
 }
-
 
 .floatRight{
     float: right;
