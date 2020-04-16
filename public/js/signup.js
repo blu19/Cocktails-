@@ -1,12 +1,14 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
   var birthdateInput = $("#dob-input");
 
+
+
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
@@ -14,10 +16,19 @@ $(document).ready(function() {
       user_dob: birthdateInput.val().trim()
     };
 
-    
-    if (!userData.email || !userData.password) {
+    var userDob = new Date(userData.user_dob)
+
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth();
+    var day = d.getDate();
+    var evaluatedDate = new Date(year - 21, month, day);
+
+
+    if (!userData.email || !userData.password || userDob >= evaluatedDate) {
+      window.location.href = "http://www.eelslap.com/"
       return;
-    } 
+    }
 
 
     // If we have an email and password, run the signUpUser function
@@ -28,7 +39,7 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password,user_dob) {
+  function signUpUser(email, password, user_dob) {
     console.log("hello")
     $.post("/signup", {
       user_name: "username",
@@ -37,14 +48,15 @@ $(document).ready(function() {
       user_dob: user_dob,
 
     })
-      .then(function(data) {
+      .then(function (data) {
         window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
-      .catch(function(err){
+      .catch(function (err) {
         console.log("in the .catch++++++++++++")
         console.log(err)
-        handleLoginErr(err)})
+        handleLoginErr(err)
+      })
   }
 
   function handleLoginErr(err) {

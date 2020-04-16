@@ -11,15 +11,15 @@ function playPause() {
   }
 }
 
-$("#modalBtnLeft").on("click", function(){
-  console.log("click")
-  window.location.href = "http://localhost:8080/login.html"
-})
+// $("#modalBtnLeft").on("click", function(){
+//   console.log("click")
+//   window.location.href = "http://localhost:8080/login.html"
+// })
 
 
-$("#modalBtnRight").on("click", function(){
-  console.log("click")
-  window.location.href = "http://www.eelslap.com/"
-})
+// $("#modalBtnRight").on("click", function(){
+//   console.log("click")
+//   window.location.href = "http://www.eelslap.com/"
+// })
 
 
