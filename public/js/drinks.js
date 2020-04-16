@@ -1,20 +1,20 @@
 $(document).ready(function () {
   let drinksArray = []
+  let likedDrinksArray = []
   let indexCount = 0
 
-  getFavorites()
+  getFavorites(likedDrinksArray)
 
   $(document).on("click", ".favRow", function () {
 
     const queryURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + $(this).data("value")
-
     $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (response) {
       console.log(response)
       $(".drinkResults").remove()
-      displayDrinks(response.drinks, 0)
+      displayDrinks(response.drinks, 0, likedDrinksArray)
       $(".next").hide()
       $(".prev").hide()
     })
@@ -32,7 +32,7 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response.drinks)
       drinksArray = response.drinks
-      displayDrinks(drinksArray, indexCount)
+      displayDrinks(drinksArray, indexCount, likedDrinksArray)
     })
   })
 
@@ -41,9 +41,9 @@ $(document).ready(function () {
     indexCount++
     if (indexCount === drinksArray.length) {
       indexCount = 0
-      displayDrinks(drinksArray, indexCount)
+      displayDrinks(drinksArray, indexCount, likedDrinksArray)
     } else {
-      displayDrinks(drinksArray, indexCount)
+      displayDrinks(drinksArray, indexCount, likedDrinksArray)
     }
   })
 
@@ -53,9 +53,9 @@ $(document).ready(function () {
     if (indexCount === -1) {
       indexCount = drinksArray.length - 1
       console.log(indexCount)
-      displayDrinks(drinksArray, indexCount)
+      displayDrinks(drinksArray, indexCount, likedDrinksArray)
     } else {
-      displayDrinks(drinksArray, indexCount)
+      displayDrinks(drinksArray, indexCount, likedDrinksArray)
     }
   })
 
@@ -64,13 +64,14 @@ $(document).ready(function () {
     var currentLikeId = $(this).val()
     var currentDrinkName = this.name
     updateLikeBtn(currentLikeId, currentDrinkName);
-    getFavorites()
+    getFavorites(likedDrinksArray)
+    $(".like").hide()
   })
 
 })
 
 // function that takes an array and a number and make the drink results into buttons (still need to add css style)
-function displayDrinks(arry, counter) {
+function displayDrinks(arry, counter, likedArray) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
@@ -89,12 +90,36 @@ function displayDrinks(arry, counter) {
   newBtn.append(like)
   $("#results").append(newBtn)
 
+  let checkId = false
+  let arryCount = 0
+
+  // while (checkId === false) {
+  //   try {
+  //     if (arry[counter].idDrink === likedArray[arryCount].toString() || arryCount === 100) {
+  //       checkId = true
+  //       console.log("hide Like")
+  //       $(".like").hide()
+  //     } else {
+  //       arryCount++
+  //     }
+  //   }
+  //   catch (err) {
+  //     console.log("got an error")
+  //   }
+
   const ingUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + arry[counter].idDrink
   $.get(ingUrl, function (data) {
     getIngredients(data.drinks)
   })
-}
 
+  for (i = 0; i < likedArray.length; i++) {
+    if (arry[counter].idDrink.toString() === likedArray[i].toString()) {
+      console.log("hide Like")
+      $(".like").hide()
+      break
+    }
+  }
+}
 
 //trying to get a function going to get the ingredients dynamically (function not working)
 function getIngredients(array) {
@@ -141,7 +166,7 @@ function updateLikeBtn(id, name) {
   )
 }
 
-function getFavorites() {
+function getFavorites(array) {
   $(".tempDiv").remove()
   console.log("working?")
   $.ajax({
@@ -149,6 +174,7 @@ function getFavorites() {
     method: "GET",
   }).then(function (response) {
     for (i = 0; i < response.length; i++) {
+      array.push(response[i].drinksId)
       const outterDiv = $("<div class = tempDiv>")
       const newFav = $("<div class='favRow' data-value='" + response[i].drinksId + "'>").text(response[i].drinksName)
 
