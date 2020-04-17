@@ -79,14 +79,14 @@ function displayDrinks(arry, counter, likedArray) {
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
   const like = $(
     "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' name='" +
-      arry[counter].strDrink +
-      "' value='" +
-      arry[counter].idDrink +
-      "'>"
+    arry[counter].strDrink +
+    "' value='" +
+    arry[counter].idDrink +
+    "'>"
   )
   const next = $("<button class='next carousel-control-next-icon' value='" + arry[counter].idDrink + "'>")
   const prev = $("<button class='prev carousel-control-prev-icon' value='" + arry[counter].idDrink + "'>")
-  
+
 
   // divTemp.append(strTitle)
   fgTemp.append(prev)
@@ -95,24 +95,7 @@ function displayDrinks(arry, counter, likedArray) {
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
   newBtn.append(like)
-  $(".active").append(newBtn)
-
-  let checkId = false
-  let arryCount = 0
-
-  // while (checkId === false) {
-  //   try {
-  //     if (arry[counter].idDrink === likedArray[arryCount].toString() || arryCount === 100) {
-  //       checkId = true
-  //       console.log("hide Like")
-  //       $(".like").hide()
-  //     } else {
-  //       arryCount++
-  //     }
-  //   }
-  //   catch (err) {
-  //     console.log("got an error")
-  //   }
+  $("#results").append(newBtn)
 
   const ingUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + arry[counter].idDrink
   $.get(ingUrl, function (data) {
