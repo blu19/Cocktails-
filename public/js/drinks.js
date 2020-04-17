@@ -68,34 +68,20 @@ $(document).ready(function () {
 
 function displayDrinks(arry, counter, likedArray) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
-  const fgTemp = $("<figure>")
+  const fgTemp = $("<figure class = 'container'>")
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
   const like = $(
-<<<<<<< HEAD
-    "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' name='" +
+    "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' data-name='" +
     arry[counter].strDrink +
-    "' value='" +
+    "' data-value='" +
     arry[counter].idDrink +
     "'>"
   )
-  const next = $("<button class='next carousel-control-next-icon' value='" + arry[counter].idDrink + "'>")
-  const prev = $("<button class='prev carousel-control-prev-icon' value='" + arry[counter].idDrink + "'>")
+  const next = $("<button class='next carousel-control-next-icon ' value='" + arry[counter].idDrink + "'>")
+  const prev = $("<button class='prev carousel-control-prev-icon ' value='" + arry[counter].idDrink + "'>")
 
-
-  // divTemp.append(strTitle)
-=======
-    "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' data-name='" +
-      arry[counter].strDrink +
-      "' data-value='" +
-      arry[counter].idDrink +
-      "'>"
-  )
-  const next = $("<button class='next carousel-control-next-icon' value='" + arry[counter].idDrink + "'>")
-  const prev = $("<button class='prev carousel-control-prev-icon' value='" + arry[counter].idDrink + "'>")
-  
->>>>>>> dc6e38bb5cbfe493fa99aab57fd1d64a39a49fc2
   fgTemp.append(prev)
   fgTemp.append(imgTemp)
   fgTemp.append(next)
@@ -158,9 +144,10 @@ function updateLikeBtn(id, name, array) {
   $.post("/updatelikes", {
     id: id,
     name: name,
-  }).then((drink) => {console.log("You've liked this drink")
+  }).then((drink) => {
+    console.log("You've liked this drink")
     getFavorites(array)
-})
+  })
 }
 
 function getFavorites(array) {

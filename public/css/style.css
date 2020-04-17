@@ -32,56 +32,7 @@ form.signup {
     height: 100%;
     background-color: rgb(216, 216, 216, 0.6);
 }  
-<<<<<<< HEAD
-/* 
-.favRow #favRowId{
-    padding: 10px 20px;
-    border: 1px solid #fff;
-    /* color: rgb(5, 5, 5); */
-    /* position: relative;
-    font-size: large;
-    font-weight: bold;
-<<<<<<< HEAD
-    /* position: absolute; */
-    color: rgb(5, 5, 5);
-    font-weight: bolder;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(216, 216, 216, 0.6);
-}
-/* 
-.favRow:before {
-=======
-    z-index: 1;
-} */ 
-
-/* .favRow:before #favRowId{
->>>>>>> 063c0a07a4d8e50897dc3bb84f909a49130db189
-    content: '';
-    position: absolute;
-    color: rgb(5, 5, 5);
-    font-weight: bolder;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-<<<<<<< HEAD
-    background-color: rgb(216, 216, 216);
-    /* filter: blur(6px); */
-    opacity: 0.3;
-    z-index: 2;
-  } */
-=======
-    background-color: rgb(216, 216, 216, 0.3);
-    filter: blur(6px);
-    z-index: 2;
-} */
->>>>>>> 063c0a07a4d8e50897dc3bb84f909a49130db189
-=======
->>>>>>> dc6e38bb5cbfe493fa99aab57fd1d64a39a49fc2
-
+   
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
@@ -110,16 +61,14 @@ form.signup {
 .drinkImg {
     width: 45%;
     border-radius: 300px;
-}
 
-.prev, .next {
-    color: black;   
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   max-height: 100px;
   max-width: 100px;
+  min-width: 50px;
   border: 0px !important;
   background-image: none;
 }
@@ -134,7 +83,6 @@ form.signup {
   content: '<';
   font-size: 55px;
   color: black;
-  padding-right: 45px;
 }
 
 #find-drink:hover {

@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "password",
-=======
-    "password": "NewPassword",
->>>>>>> 063c0a07a4d8e50897dc3bb84f909a49130db189
     "database": "drinks_db",
     "host": "127.0.0.1",
     "port": 3306,

@@ -29,7 +29,6 @@ $(document).ready(function () {
       return;
     }
 
-
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password, userData.user_dob);
     emailInput.val("");
