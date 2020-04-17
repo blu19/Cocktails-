@@ -12,7 +12,6 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response)
       $(".drinkResults").remove()
       displayDrinks(response.drinks, 0, likedDrinksArray)
       $(".next").hide()
@@ -30,7 +29,6 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response.drinks)
       drinksArray = response.drinks
       displayDrinks(drinksArray, indexCount, likedDrinksArray)
     })
@@ -52,7 +50,6 @@ $(document).ready(function () {
     indexCount--
     if (indexCount === -1) {
       indexCount = drinksArray.length - 1
-      console.log(indexCount)
       displayDrinks(drinksArray, indexCount, likedDrinksArray)
     } else {
       displayDrinks(drinksArray, indexCount, likedDrinksArray)
@@ -61,16 +58,14 @@ $(document).ready(function () {
 
 
   $(document).on("click", ".like", function () {
-    var currentLikeId = $(this).val()
-    var currentDrinkName = this.name
-    updateLikeBtn(currentLikeId, currentDrinkName);
-    getFavorites(likedDrinksArray)
+    var currentLikeId = $(this).data("value")
+    var currentDrinkName = $(this).data("name")
+    updateLikeBtn(currentLikeId, currentDrinkName, likedDrinksArray);
     $(".like").hide()
   })
 
 })
 
-// function that takes an array and a number and make the drink results into buttons (still need to add css style)
 function displayDrinks(arry, counter, likedArray) {
   const newBtn = $("<div class='drinkResults' value='" + arry[counter].idDrink + "'>")
   const fgTemp = $("<figure>")
@@ -78,6 +73,7 @@ function displayDrinks(arry, counter, likedArray) {
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
   const like = $(
+<<<<<<< HEAD
     "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' name='" +
     arry[counter].strDrink +
     "' value='" +
@@ -89,6 +85,17 @@ function displayDrinks(arry, counter, likedArray) {
 
 
   // divTemp.append(strTitle)
+=======
+    "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' data-name='" +
+      arry[counter].strDrink +
+      "' data-value='" +
+      arry[counter].idDrink +
+      "'>"
+  )
+  const next = $("<button class='next carousel-control-next-icon' value='" + arry[counter].idDrink + "'>")
+  const prev = $("<button class='prev carousel-control-prev-icon' value='" + arry[counter].idDrink + "'>")
+  
+>>>>>>> dc6e38bb5cbfe493fa99aab57fd1d64a39a49fc2
   fgTemp.append(prev)
   fgTemp.append(imgTemp)
   fgTemp.append(next)
@@ -104,14 +111,12 @@ function displayDrinks(arry, counter, likedArray) {
 
   for (i = 0; i < likedArray.length; i++) {
     if (arry[counter].idDrink.toString() === likedArray[i].toString()) {
-      console.log("hide Like")
       $(".like").hide()
       break
     }
   }
 }
 
-//trying to get a function going to get the ingredients dynamically (function not working)
 function getIngredients(array) {
   const { strDrink, strCategory, strAlcoholic, strInstructions } = array[0]
   const newArray = Object.entries(array[0])
@@ -146,21 +151,20 @@ function testI(emStr, array) {
   }
 }
 
-
-function updateLikeBtn(id, name) {
+function updateLikeBtn(id, name, array) {
   let drinkId = { id: id, name: name }
   drinkId = JSON.stringify(drinkId)
 
   $.post("/updatelikes", {
     id: id,
     name: name,
-  }).then(() => console.log("You've liked this drink")
-  )
+  }).then((drink) => {console.log("You've liked this drink")
+    getFavorites(array)
+})
 }
 
 function getFavorites(array) {
   $(".tempDiv").remove()
-  console.log("working?")
   $.ajax({
     url: "/favorites",
     method: "GET",

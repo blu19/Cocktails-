@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // This file just does a GET request to figure out which user is logged in
+  // This file does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   function loginUser(email, password) {
     $.post("/login", {
