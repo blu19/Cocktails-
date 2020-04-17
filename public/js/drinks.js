@@ -177,7 +177,7 @@ function getFavorites(array) {
   }).then(function (response) {
     for (i = 0; i < response.length; i++) {
       array.push(response[i].drinksId)
-      const outterDiv = $("<div class = tempDiv>")
+      const outterDiv = $("<div class = 'tempDiv'>")
       const newFav = $("<div class='favRow' data-value='" + response[i].drinksId + "'>").text(response[i].drinksName)
 
       outterDiv.append(newFav)
