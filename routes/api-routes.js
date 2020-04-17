@@ -1,4 +1,3 @@
-// Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
 
@@ -7,8 +6,6 @@ module.exports = function (app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/login", passport.authenticate("local"), function (req, res) {
-    console.log("zach")
-    console.log(req.user)
     res.json(req.user);
   });
 
@@ -16,7 +13,6 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/signup", function (req, res) {
-    console.log(req.body)
     db.User.create({
       user_name: req.body.user_name,
       email: req.body.email,
@@ -27,18 +23,11 @@ module.exports = function (app) {
         res.redirect(307, "/login");
       })
       .catch(function (err) {
-        console.log("message here?&&&&&&&&&&&&&&&")
-        console.log(err)
-        console.log("Yes it is-------------------");
         res.status(401).json(err);
       });
   });
 
-
-  
-
   app.post("/members", function (req, res) {
-    console.log(req.body.id)
     db.User.update(
       req.body,
       {
@@ -60,7 +49,6 @@ module.exports = function (app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      console.log(db.LikedDrinks)
       db.LikedDrinks.findAll({
         where: {
           userId: req.user.id
@@ -71,9 +59,6 @@ module.exports = function (app) {
     }
   });
   app.post("/updatelikes", function (req, res) {
-    console.log("----------------------------------------------------")
-    console.log(req.body)
-    console.log(req.body.name);
     db.LikedDrinks.create({
       userId: req.user.id,
       drinksId: req.body.id,
