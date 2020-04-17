@@ -77,9 +77,16 @@ function displayDrinks(arry, counter, likedArray) {
   const imgTemp = $("<img class='drinkImg' src='" + arry[counter].strDrinkThumb + "'>")
   const divTemp = $("<div class='drinkInfo'>")
   const strTitle = $("<strong class='drinkTitle'>").text(arry[counter].strDrink)
-  const like = $("<button class='like' name='" + arry[counter].strDrink + "' value='" + arry[counter].idDrink + "'>").text("like")
-  const next = $("<button class='next' value='" + arry[counter].idDrink + "'>").text(">")
-  const prev = $("<button class='prev' value='" + arry[counter].idDrink + "'>").text("<")
+  const like = $(
+    "<img class='like' src='https://img.icons8.com/bubbles/75/000000/thumb-up.png' name='" +
+      arry[counter].strDrink +
+      "' value='" +
+      arry[counter].idDrink +
+      "'>"
+  )
+  const next = $("<button class='next carousel-control-next-icon' value='" + arry[counter].idDrink + "'>")
+  const prev = $("<button class='prev carousel-control-prev-icon' value='" + arry[counter].idDrink + "'>")
+  
 
   // divTemp.append(strTitle)
   fgTemp.append(prev)
@@ -88,7 +95,7 @@ function displayDrinks(arry, counter, likedArray) {
   newBtn.append(fgTemp)
   newBtn.append(divTemp)
   newBtn.append(like)
-  $("#results").append(newBtn)
+  $(".active").append(newBtn)
 
   let checkId = false
   let arryCount = 0
@@ -178,7 +185,7 @@ function getFavorites(array) {
     for (i = 0; i < response.length; i++) {
       array.push(response[i].drinksId)
       const outterDiv = $("<div class = tempDiv>")
-      const newFav = $("<div class='favRow' data-value='" + response[i].drinksId + "'>").text(response[i].drinksName)
+      const newFav = $("<div class='favRow' id='favRowId' data-value='" + response[i].drinksId + "'>").text(response[i].drinksName)
 
       outterDiv.append(newFav)
       $("#likedTable").append(outterDiv)
