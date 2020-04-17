@@ -3,9 +3,6 @@ form.signup {
 }
 
 #ingredientsRes, #drinkName, h4 {
-  /* background-color: rgb(0, 0, 0); */
-  /* opacity: 0.8;  
-  color: rgb(0, 0, 0);  */
   display: inline;
 }
 
@@ -14,9 +11,6 @@ form.signup {
     border: 1px solid #fff;
     color: rgb(5, 5, 5);
     position: relative;
-    /* z-index: 1; */
-    /* content: ''; */
-    /* position: relative; */
     top: 0;
     left: 0;
     width: 100%;
@@ -25,29 +19,11 @@ form.signup {
     font-weight: bolder;
 }
 
-/* .border-box:before {
-    content: '';
-    /* position: relative; */
-    /* top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(216, 216, 216, 0.6);
-    font-weight: bolder; */ 
-    /* filter: blur(6px); */
-    /* opacity: 0.5; */
-    /* z-index: 1; */
-
-
-
 .favRow {
     padding: 10px 20px;
     border: 1px solid #fff;
-    /* color: rgb(5, 5, 5); */
     position: relative;
     font-size: large;
-    /* font-weight: bold; */
-    /* position: absolute; */
     color: rgb(5, 5, 5);
     font-weight: bolder;
     top: 0;
@@ -56,31 +32,7 @@ form.signup {
     height: 100%;
     background-color: rgb(216, 216, 216, 0.6);
 }  
-/* 
-.favRow #favRowId{
-    padding: 10px 20px;
-    border: 1px solid #fff;
-    /* color: rgb(5, 5, 5); */
-    /* position: relative;
-    font-size: large;
-    font-weight: bold;
-    z-index: 1;
-} */ 
-
-/* .favRow:before #favRowId{
-    content: '';
-    position: absolute;
-    color: rgb(5, 5, 5);
-    font-weight: bolder;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(216, 216, 216, 0.3);
-    filter: blur(6px);
-    z-index: 2;
-} */
-
+   
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
@@ -94,6 +46,7 @@ form.signup {
     background-size: cover;
     margin: 0;
     background-repeat: no-repeat;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -108,23 +61,18 @@ form.signup {
 .drinkImg {
     width: 45%;
     border-radius: 300px;
-}
 
-.prev, .next {
-    color: black;   
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
+  max-height: 100px;
+  max-width: 100px;
+  min-width: 50px;
   border: 0px !important;
-  /* outline: black; */
-  /* background-size: 100%, 100%; */
-  /* border-radius: 50%; */
-  /* border: 1px solid black; */
   background-image: none;
 }
+
 .carousel-control-next-icon:after
 {
   content: '>';
@@ -163,17 +111,10 @@ form.login {
     min-height: 100%;
 }
 
-.logoutTitle {
-}
-
-.signupTitle {
-}
-
 #logoutButton, #landingSignupButton, #landingLoginButton {
     max-width:500px;
     min-width:40px;
     font-size: 25px;
-  /*   padding: 10px; */
     border: none;
     background: rgb(7, 11, 15);  
     color: rgb(167, 159, 148);
@@ -228,47 +169,14 @@ form.login {
     padding: 0 45px 0 45px;
 }
 
-
-@keyframes pulse {   
-     0%{        box-shadow: 0 0 0 0 rgba(65, 75, 65, 0.99);    }   
-    70%{        box-shadow: 0 0 0 2rem rgba(6, 190, 6, 0);    }   
-   100%{        box-shadow: 0 0 0 0 rgba(51, 61, 51, 0.99);    }
-}
-
-
-
-/* #landingContent {
-    position: fixed;
-    left: 75%;
-    bottom: 8%;
-    width: 100%;
-    padding: 20px;
-} */
-
 .title{
     width: 100%;
-    /* padding: 0px; */
-/* /*     font-size: 400%;
- /*     margin: auto; */
     font-size: 100%;
 }
 
 .heropanel--video {
     font-family:sans-serif;
     min-height:500px;
-}
-
-@keyframes gm-slidein {
-    from {
-        -webkit-transform:translate3d(0,-100%,0);
-        opacity:0;
-        transform:translate3d(0,-100%,0);
-    }
-    to {
-        -webkit-transform:none;
-        opacity:1;
-        transform:none;
-    }
 }
 
 .heropanel__content {
@@ -281,7 +189,6 @@ form.login {
     max-width:100%;
     padding:5em 0 3em 0;
     text-align:center;
-
 }
 
 .heropanel__content h1 {
@@ -314,7 +221,6 @@ form.login {
         left: 0;
 }
 
-/* Needs work on this for the styling */
 #landingLoginButton,#landingSignupButton  {
     border: 8px 8px 8px 8px solid black;
     padding: 8px 8px 8px 8px;
