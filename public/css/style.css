@@ -6,6 +6,11 @@ form.signup {
   display: inline;
 }
 
+#titleLogin{
+    font-weight: bold;
+    color:black;
+}
+
 .border-box{
     padding: 10px 20px;
     border: 1px solid #fff;
@@ -32,6 +37,11 @@ form.signup {
     height: 100%;
     background-color: rgb(216, 216, 216, 0.6);
 }  
+
+.favRow:hover {
+    color: blue;
+    text-decoration: underline;
+}
    
 #imageSignup {
     background-image: url(https://images.pexels.com/photos/1227563/pexels-photo-1227563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
@@ -90,9 +100,27 @@ form.signup {
     color: black;
 }
 
-form.login {
+form{
     margin-top: 50px;
+    color: black;
+    font-weight: bolder;
 }
+
+#loginhref{
+    color: black;
+    font-weight: bolder;  
+    font-size: 20px;
+    text-align: center;
+}
+
+#hreflogin{
+    color: black;
+    font-weight: bolder;  
+    font-size: 20px;
+    text-align: center;
+}
+
+
 
 #imageLogin {
     background-image: url(https://images.pexels.com/photos/681846/pexels-photo-681846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
@@ -100,6 +128,8 @@ form.login {
     margin: 0;
     background-repeat: no-repeat;
     height: 100vh;
+    background-position: center center; 
+
 }
 
 #videoBG {
@@ -234,4 +264,15 @@ form.login {
         #landingLoginButton,#landingSignupButton {
         margin: 0;
         display: inline-block;
-        border-bottom: 0px solid black; } }
+        border-bottom: 0px solid black; }}
+    @media screen and (max-width: 980px){
+        .signup, #titleSign, #hreflogin  {
+            color: white; }
+        #loginAtag {
+            color: chartreuse;}}
+    @media screen and (max-width : 500px ){
+        #imageSignup{
+            background-position: -15rem;}
+        #imageMembers{
+            background-position: right; }}
+    
